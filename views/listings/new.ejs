@@ -1,0 +1,62 @@
+<% layout("/layout/boilerplate")%>
+
+<div class="row">    
+    <div class="col-8 offset-2">
+        <form method="POST" action="/listings" class="needs-validation mt-2" novalidate enctype="multipart/form-data">
+        <h3>Create New listing</h3>
+        <div class="mb-2">
+            <label for="title" class="form-label">Title</label>
+            <input id="title" name="listing[title]" placeholder="Add Title" type="text" class="form-control" required>
+        </div>
+        <div  class="mb-2">
+            <label for="desc"  class="form-label">Description</label>
+            <textarea id="desc" name="listing[description]" placeholder="Add Description" type="text" class="form-control" required></textarea>
+        </div>
+        <div  class="mb-2">
+            <label for="image"  class="form-label">Upload Image File</label>
+            <input id="image" name="listing[image]" type="file" class="form-control" required>
+        </div>
+        <div  class="mb-2">
+            <label for="price"  class="form-label">Price</label>
+            <input id="price" name="listing[price]" placeholder="Add Price" type="number" class="form-control" required>
+        </div>
+        <div>
+                <!-- adding category options -->
+            <div  class="mb-2">
+                <label for="category"  class="form-label">Select Category</label>
+                <!-- <input id="category" name="listing[category]"  type="number" class="form-control" required> -->
+                <select class="form-select" id="category" name="listing[category]">
+                    <option selected>Select Category</option>
+                    <option value="Trending">Trending</option>
+                       <option value="Luxury">Luxury</option>
+                       <option value="Single Rooms">Single Rooms</option>
+                       <option value="Swimming Pool">Swimming Pool</option>
+                       <option value="Beachfront">Beachfront</option>
+                       <option value="Business Friendly">Business Friendly</option>
+                       <option value="Mountain View">Mountain View</option>
+                       <option value="Top Cities">Top Cities</option>
+                       <option value="Arctic">Arctic</option>
+                  </select>
+            </div>
+            </div>
+            <div>
+ <!-- adding category options -->
+            <div class="row"  class="mb-2">
+                <div class="col-md-4">
+                    <label for="country"  class="form-label" >Country</label>
+                <input id="country" name="listing[country]" placeholder="Add Country" type="text" class="form-control" required>
+                   </div>
+                <div class="col-md-8">
+                     <label for="location"  class="form-label">Location</label>
+                    <input id="location" name="listing[location]" placeholder="Add Location" type="text" class="form-control" required>
+                   </div>
+                 
+                
+            </div>
+           
+           </div>
+   <button class="btn btn-dark mt-4 mb-5">Add Details</button>
+    </form>
+</div>
+</div>
+

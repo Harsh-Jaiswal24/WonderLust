@@ -1,0 +1,79 @@
+<style>
+  /* Change the border color on focus */
+/* Change border color and box-shadow on focus */
+#searchInput{
+  padding-right: 70px !important;
+}
+#searchInput:focus {
+    border-color: rgb(123, 228, 231) !important; /* Change focus border color */
+    box-shadow: 0 0 0 1px  rgb(123, 228, 231) !important; /* Optional: Change the box-shadow to match */
+}
+  .btn-search{
+    background-color:rgb(123, 228, 231);
+    color: white;
+    /* border-radius: 20px; */
+  }
+  .btn-search:hover{
+    background-color:rgb(255, 255, 255);
+    color: rgb(123, 228, 231);
+    border: 2px solid rgb(123, 228, 231);
+    font-weight: 900;
+  }
+  
+  .btn-search i{
+    display: inline-block;
+  }
+  .wonderlusticon{
+    display: inline !important;
+  }
+
+
+</style>
+
+
+<nav class="navbar navbar-expand-md bg-body-secondary sticky-top	color--bs-success-bg-subtle border-bottom">
+    <div class="container-fluid bg-body-secondary">
+      <a class="nav-link ms-3 wonderlusticon" aria-current="page" href="/listings"><i class="fa-solid fa-location-arrow"></i></a>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings">Explore All</a>
+        </div>
+
+        <!--adding search bar-->
+        <nav class="navbar-nav ms-auto">
+          <div class="container-fluid">
+            <form class="d-flex needs-validation" role="search" action="/listings/s" method="GET" novalidate>
+              <input class="form-control me-2" id="searchInput" placeholder="Search Destinations" name="searchedlocation" type="text" required>
+              <button class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+        </nav>
+
+        <div class="navbar-nav ms-auto">
+          <% if(!currentUser){%>
+            <a class="nav-link" href="/listings/new">WonderLust your home</a>
+            <% }%> 
+          
+              <% if(currentUser){ %>
+                <div class="d-flex align-items-center">
+                <a href="/listings/new" class="nav-link d-flex align-items-center">
+                  <i class="fa-solid fa-circle-user me-2"></i>
+                  <span><%= currentUser.username %>'s WonderLust</span>
+                </a>
+              </div>
+              <% } %>
+            
+          <% if(!currentUser){%>
+          <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+          <% }%> 
+          <% if(currentUser){%>
+          <a class="nav-link" href="/logout"> <b>Log out</b></a>
+          <% }%>
+        </div>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,126 @@
+<style>
+
+.alert {
+    border-radius: 0.5rem; /* Ensure rounded corners for the alert */
+    overflow: hidden; /*Prevent content from overflowing the alert */
+    position: relative;
+}
+    /* Style for the bottom progress bar */
+    .progress-bar-timer {
+        position: absolute;
+        margin-left: .2px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        /* border-bottom-right-radius: 4px; */
+        border-bottom-left-radius: 0.5rem;
+        /* border-radius: 0 0 0.5rem 0; Match the parent’s border radius */
+        transition: width 5s linear; /* Smooth transition for 5 seconds */
+    }
+    </style>
+    
+    <script>
+        // JavaScript to handle the progress bar and alert auto-dismiss
+        window.addEventListener('DOMContentLoaded', () => {
+            const alertElement = document.getElementById('bootstrapAutoDismiss');
+            const progressBar = alertElement.querySelector('.progress-bar-timer');
+    
+            if (alertElement && progressBar) {
+                // Automatically set the color of the progress bar based on alert type
+                if (alertElement.classList.contains('alert-success')) {
+                    progressBar.style.backgroundColor = '#198754'; // Success
+                } else if (alertElement.classList.contains('alert-info')) {
+                    progressBar.style.backgroundColor = '#0dcaf0'; // Info
+                } else if (alertElement.classList.contains('alert-warning')) {
+                    progressBar.style.backgroundColor = '#ffc107'; // Warning
+                } else if (alertElement.classList.contains('alert-danger')) {
+                    progressBar.style.backgroundColor = '#dc3545'; // Danger
+                }
+    
+                // Start the progress bar animation
+                progressBar.style.width = '0%';
+    
+                // Dismiss the alert smoothly after 5 seconds
+                setTimeout(() => {
+                    const alert = new bootstrap.Alert(alertElement); // Bootstrap's Alert instance
+                    alert.close(); // Close the alert programmatically
+                }, 5000); // 5 seconds
+            }
+        });
+    </script>
+
+
+<% if(success && success.length) { %>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-10">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="bootstrapAutoDismiss">
+                <%= success %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="progress-bar-timer"></div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    
+
+    <% if(deleted && deleted.length) { %>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-10">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="bootstrapAutoDismiss">
+                    <%= deleted %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="progress-bar-timer"></div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        
+        <% if(updated && updated.length) { %>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-10">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="bootstrapAutoDismiss">
+                    <%= updated %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="progress-bar-timer"></div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        
+        <% if(reviewadd && reviewadd.length) { %>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-10">
+                <div class="alert alert-info alert-dismissible fade show" role="alert" id="bootstrapAutoDismiss">
+                    <%= reviewadd %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="progress-bar-timer"></div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        
+        <% if(reviewdel && reviewdel.length) { %>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-10">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="bootstrapAutoDismiss">
+                    <%= reviewdel %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="progress-bar-timer"></div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        
+        <% if(error && error.length) { %>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 col-10">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="bootstrapAutoDismiss">
+                    <%= error %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="progress-bar-timer"></div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        

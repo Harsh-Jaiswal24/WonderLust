@@ -1,0 +1,213 @@
+<% layout("/layout/boilerplate")%> 
+<!-- <h1>All Listings</h1> -->
+ <style>
+  #filters{
+    display :flex !important; 
+    flex-wrap: wrap !important;
+    align-items: center;
+  }
+
+ .filter p{
+    font-size: 0.8rem !important;
+    }
+
+  .filter{
+    text-align: center !important;
+    margin-right: 2rem !important;
+    margin-top: .5rem !important;
+    opacity: 0.7 !important;
+  }
+  .filter:hover{
+    opacity: 1 !important;
+    cursor: pointer;
+    border-bottom: .1px solid rgb(51, 50, 50);
+  }  
+  .filter.active {
+    opacity: 1 !important;
+    border-bottom: .1px solid rgb(51, 50, 50);
+}
+
+.tax-info{
+  display: none;
+}
+.notaxp{
+  display: inline;
+}
+.tax-switch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: .3rem;
+  height: fit-content;
+  padding: .7rem;
+ 
+}
+
+
+
+
+  @media (max-width: 576px) {
+    .tax-switch {
+      width: 80%; /*Ensure the tax div covers 80% on small screens*/
+    }
+  }
+
+  /* Optional: You can add margin-top to the tax switch div for some spacing */
+  .tax-switch {
+    margin-top: 3px !important;
+    max-width: fit-content !important;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+
+    border-radius: 50%; /* Optional: to make the icon circular */
+    /* width: 40px; /* Adjust the size of the icon */
+    /* height: 40px; Adjust the size of the icon */ 
+  }
+
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5; /* Ensure buttons are on top */
+    color: #dbdadd !important; 
+  }
+
+  .carousel-control-prev {
+    left: -22px !important; /* Adjust the left position */
+  }
+
+  .carousel-control-next {
+    right: 1px; /* Adjust the right position */
+  }
+
+.btnbox:hover {
+  background-color: inherit; /* Remove background color change */
+  color: inherit; /* Remove color change */
+  box-shadow: none; /* Remove shadow if applied */
+  text-decoration: none; /* Remove underline if present */
+}
+
+.btnbox:active {
+  background-color: inherit !important; /* Remove background color change */
+  color: inherit !important; /* Remove color change */
+  box-shadow: none !important; /* Remove shadow if applied */
+  text-decoration: none !important; /* Remove underline if present */
+}
+
+ </style>
+ <!-- Filter Bar -->
+<div id="filters" class="mt-2">
+  <div class="container"> <!-- Default container with Bootstrap classes -->
+    <!-- Carousel -->
+    <div id="filterCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-around">
+            <div class="filter" data-filter="Trending" data-url="/listings?filter=Trending">
+              <div><i class="fa-solid fa-fire"></i></div>
+              <p>Trending</p>
+            </div>
+            <div class="filter" data-filter="Luxury" data-url="/listings?filter=Luxury">
+              <div><i class="fa-solid fa-crown"></i></div>
+              <p>Luxury</p>
+            </div>
+            <div class="filter" data-filter="Single Rooms" data-url="/listings?filter=Single Rooms">
+              <div><i class="fa-solid fa-bed"></i></div>
+              <p>Single Rooms</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="d-flex justify-content-around">
+            <div class="filter" data-filter="Swimming Pool" data-url="/listings?filter=Swimming Pool">
+              <div><i class="fa-solid fa-swimming-pool"></i></div>
+              <p>Swimming Pool</p>
+            </div>
+            <div class="filter" data-filter="Beachfront" data-url="/listings?filter=Beachfront">
+              <div><i class="fa-solid fa-umbrella-beach"></i></div>
+              <p>Beachfront</p>
+            </div>
+            <div class="filter" data-filter="Business Friendly" data-url="/listings?filter=Business Friendly">
+              <div><i class="fa-solid fa-handshake"></i></div>
+              <p>Business Friendly</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="d-flex justify-content-around">
+            <div class="filter" data-filter="Mountain View" data-url="/listings?filter=Mountain View">
+              <div><i class="fa-solid fa-mountain"></i></div>
+              <p>Mountain View</p>
+            </div>
+            <div class="filter" data-filter="Top Cities" data-url="/listings?filter=Top Cities">
+              <div><i class="fa-solid fa-city"></i></div>
+              <p>Top Cities</p>
+            </div>
+            <div class="filter" data-filter="Arctic" data-url="/listings?filter=Arctic">
+              <div><i class="fa-solid fa-snowflake"></i></div>
+              <p>Arctic</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#filterCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #e9ecef;"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#filterCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #e9ecef;"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+    <!-- Tax Switch -->
+    <div class="d-flex justify-content-center mt-3">
+      <div class="btn btn-outline-dark btnbox">
+      <div class="form-check form-switch">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Display total before Tax</label>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="mt-3 row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1">
+    <% for(let lists of alllisting) { %>
+      <a href="/listings/<%= lists.id%>">     
+         <div class="card col  listing-card">
+
+        <img src="<%=lists.image.url%>" class="card-img-top" style="height: 20rem;"  alt="lisitng Image">
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text fw-semibold"> <b><%= lists.title%></b></p>
+          <p class="card-text fw-semibold notaxp"> &#8377; <%= lists.price.toLocaleString("en-IN") %>/night </p>
+          <p class="card-text fw-semibold tax-info">
+         &#8377; 
+         <% 
+         if (lists.price >= 7500) {
+             lists.price = lists.price + (28 * lists.price) / 100;
+         } else if (lists.price <= 2499) {
+             lists.price = lists.price + (12 * lists.price) / 100;
+         } else if (lists.price >= 2500 && lists.price <= 7499) {
+             lists.price = lists.price + (18 * lists.price) / 100;
+         }
+     %>
+     
+     <%= lists.price %>
+     
+         /night with GST </p>
+        </div>
+      </div>
+    </a>
+
+     <%}%>
+    </div>

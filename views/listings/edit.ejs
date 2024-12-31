@@ -1,0 +1,61 @@
+
+<%- layout("/layout/boilerplate")%>
+
+    <form method="POST" action="/listings/<%=iddetail.id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <h3 class="mt-2 mb-3">Update Details</h3>
+        <div class="mb-2">  
+            <label for="title" class="form-label">Title</label>
+            <input id="title" name="listing[title]" value="<%= iddetail.title%>" type="text" class="form-control" required>
+        </div>
+        <div class="mb-2"> 
+             <label for="desc" class="form-label">Description</label>
+            <textarea id="desc" name="listing[description]"  type="text" class="form-control" required><%= iddetail.description%></textarea>
+        </div>
+                <div class="mb-2"> 
+                      Last image
+                     <img src="<%=originalImage%>" style="height: 100px; width: 200px;">
+            </div>
+        <div class="mb-2"> 
+                <label for="image" class="form-label">Upload New Image</label>
+                 <input id="image" name="listing[image]"  type="file" class="form-control">
+        </div>
+        <div class="mb-2">     
+                <label for="location" class="form-label">Price</label>
+                <input id="price" name="listing[price]"  value="<%= iddetail.price%>" type="number" class="form-control" required>
+        </div>
+        
+        <!-- Adding select field -->
+        <div>
+            <!-- adding category options -->
+        <div  class="mb-2">
+            <label for="category"  class="form-label">Select Category</label>
+            <!-- <input id="category" name="listing[category]"  type="number" class="form-control" required> -->
+            <select class="form-select" id="category" name="listing[category]">
+                <option value="Trending" <%= iddetail.category === "Trending" ? 'selected' : '' %>>Trending</option>
+                <option value="Luxury" <%= iddetail.category === "Luxury" ? 'selected' : '' %>>Luxury</option>
+                <option value="Single Rooms" <%= iddetail.category === "Single Rooms" ? 'selected' : '' %>>Single Rooms</option>
+                <option value="Swimming Pool" <%= iddetail.category === "Swimming Pool" ? 'selected' : '' %>>Swimming Pool</option>
+                <option value="Beachfront" <%= iddetail.category === "Beachfront" ? 'selected' : '' %>>Beachfront</option>
+                <option value="Business Friendly" <%= iddetail.category === "Business Friendly" ? 'selected' : '' %>>Business Friendly</option>
+                <option value="Mountain View" <%= iddetail.category === "Mountain View" ? 'selected' : '' %>>Mountain View</option>
+                <option value="Top Cities" <%= iddetail.category === "Top Cities" ? 'selected' : '' %>>Top Cities</option>
+                <option value="Arctic" <%= iddetail.category === "Arctic" ? 'selected' : '' %>>Arctic</option>
+                
+              </select>
+        </div>
+        </div>
+
+
+    <div class="mb-2 row"> 
+        <div class="col-md-4"> 
+            <label for="country" class="form-label">Country</label>
+            <input id="country" name="listing[country]"  value="<%= iddetail.country%>" type="text" class="form-control" required>
+        </div>
+        <div class="col-md-8">
+                <label for="location" class="form-label">Location</label>
+                 <input id="location" name="listing[location]"  value="<%= iddetail.location%>"type="text" class="form-control" required>
+        </div>  
+    </div>
+        <button class="btn btn-primary  mt-4 mb-4">Update Details</button>
+</form>
+

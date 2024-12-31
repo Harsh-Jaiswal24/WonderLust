@@ -1,0 +1,69 @@
+1:  module.exports= Nameof Function or variable or class or object or a single value to Export;
+
+ 2: On Importing any file from other folder BeCarefull that 
+        foldername should start by .. (i.e.: "../models/listing.js");
+        Example => const Listening= require("../models/listing.js");     
+
+3: if Two route of  same request is there of same type first route will accessed first than second will.
+       Example => app.get("/listings/new",(req,res)=>{  });
+                            app.get("/listings/:id", async(req,res)=>{ });
+       first /listings/new will accessed than /listing/:id
+
+4:  To Get from details from frontend in object form use 
+              
+              <input name="yourobjectname[idofobject]" type="text>
+              And access it directly without { } i.e.  let yourobjectname= req.body;       
+       Example => //In from page
+              <input id="title" name="listing[title]" placeholder="Add Title" type="text"> 
+                            //in Backend
+               const newlisting = new Listing(req.body.listing); 
+              await newlisting.save();
+
+5: Unlike all other tags in From We cannot directly put default value for that Use below method to put default value   
+       <textarea id="desc" name="listing[description]"  type="text">
+       <%= iddetail.description%>
+       </textarea>
+   
+6: In anchor tag if href="/listing"  it will go to /listing route when clicked.
+
+7: If Want to override Custom styling on a tag use !important in custom css after each styling.
+       Example =>    .nav-link{    color: rgb(0, 0, 0) !important      } 
+
+8: Bootstrap Grid System: 
+       1. Understanding the Bootstrap Grid System
+              Bootstrap’s grid system is built around a 12-column layout. 
+              Each row in the grid is divided into 12 equal-width columns
+              You can control how much of the row a certain element takes up by using the col- classes.
+
+       Key Terms:
+              container: A wrapper that contains the grid, ensuring content is properly aligned and centered.
+                     row: Defines a horizontal group of columns.
+                     col-: Defines the number of columns an element should span. For example, col-8 spans 8 columns out of the 12 available.
+       Basic Grid Layout:
+       Total columns available: 12
+       Each row: A row in Bootstrap is divided into 12 equal columns.
+       
+8: In Bootstrap We Can Easily Make Things Responsive
+       FIrst Step ::            CREATE A DIV OF CLASS "container"
+                                          //It will Divide all the body width into 12 columns
+       
+       Second Step ::       CREATE A DIV OF CLASS "row"
+                                          //It will understand that all the content will inserted in this div will be in one row.
+                                          //it will adjust itself acccording to content but overall it is one row                     
+
+       Third Step ::          CREATE DIVS USING CLASS "col-X offset-Y"     X is no of Column reuqired 
+                                          //Here the created div will take X/12 width of whole body.
+                                          //offset-Y will move div Y columns toward right side.
+
+       Forth Step ::         ADJUST HEIGHT OF DIV acccordingly
+                                          //Either by using Bootstrap classes
+                                          //Or by custum Styling
+
+                                    ADJUSTING ElEMENTS AND ITEMS WIDTH AND HEiGHT of this div       
+                                           Example :: <tag style="object-fit: cover; height: 350px; width: 70%;" >
+                                                               //In this 
+                                                                      //Tag will have height 350px under that div
+                                                                      //And Width will be 70% of that div
+                                                                       
+ ><  for rating use starability library which provide different different rating animation as stars
+                                                               
