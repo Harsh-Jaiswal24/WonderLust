@@ -6,7 +6,6 @@
     const ejsmate= require("ejs-mate"); 
     const expresserror= require("./utils/expresserror.js");
     const wrapAsync=require("./utils/wrapAsync.js");
-
     const listingRouter= require("./routes/listing.js")
     const reviewRouter= require("./routes/review.js");
     const userRoute= require("./routes/user.js");
@@ -25,7 +24,7 @@
     }
     const dburl=process.env.ATLASDB_URL;
     const secretcode=process.env.SECRETCODE
-
+    const port=process.env.PORT || 8080;
 main().then(()=>{console.log("Database Connected")})
                 .catch((err)=>{console.log(err)});
     async function main() {
@@ -106,6 +105,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error.ejs", { err });
 }); 
 
-    app.listen(8080,()=>{
-        console.log("Listening at port 8080");
+    app.listen(port,()=>{
+        console.log(`Listening at port ${port}`);
     });
