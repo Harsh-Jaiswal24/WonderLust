@@ -2,7 +2,7 @@
 
 Welcome to Wonderlust! 🌍✨
 
-Wonderlust is a fully functional backend application built with Express.js and Node.js as part of my learning journey. This project enables users to sign up, log in, add listings, rate properties, and more.
+Wonderlust is a fully functional backend application built with Express.js and Node.js as part of my learning journey. This project enables users to sign up, log in, add listings, rate listings and manage their content with complete authentication and authorization.
 
 ---
 
@@ -24,18 +24,18 @@ Wonderlust is a fully functional backend application built with Express.js and N
 
 ⭐ **Ratings**
 - **Rate Properties**: Users can leave ratings and reviews on properties to help others make informed decisions about their stays. 📝
-- **Real-time Updates**: As users add or modify their ratings, everything updates instantly to reflect the latest feedback. 🔄
+- **Review Access Control**: Only user who added can delete their ratings, everything updates instantly to reflect the latest feedback. 🔄
 
 ---
 
 📍 **Location-Based Search & Category Filters**
-- **Search by Location**: Find properties based on your preferred city, neighborhood, or region. 🌍
-- **Filter by Category**: Easily filter properties by type (e.g., Apartments, Houses, Villas). 🏠🏢
+- **Search by Location**: Find listings based on your preferred city, neighborhood, or region. 🌍
+- **Filter by Category**: Easily filter properties by type (e.g, Single Room, Beachfront, Top cities ..). 🏠🏢
 
 ---
 
-💾 **Session Management**
-- **Session Security**: User session data is securely stored using mongo-session on MongoDB, ensuring consistent and safe session handling. 🛡️
+💾 **Session Management using mongo-session**
+- **Session Security**: User session data is securely stored using connect-mongo is a MongoDB session store for express-session, which allows you to store session data in a MongoDB database instead of the default in-memory storage ensuring consistent and safe session handling. 🛡️
 
 ---
 
@@ -63,7 +63,7 @@ Wonderlust is a fully functional backend application built with Express.js and N
 - **Backend**: Node.js, Express.js
 - **Authentication**: Passport.js
 - **Database**: MongoDB
-- **Session Storage**: mongo-session
+- **Session Storage**: connect-mongo
 - **Image Storage**: Cloudinary
 - **Map Integration**: Mapbox
 - **Architecture**: MVC (Model-View-Controller)
